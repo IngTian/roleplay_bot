@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package calculator;
+
+service Calculator {
+  rpc Add (ArithmeticRequest) returns (ArithmeticResponse);
+  rpc Multiply (ArithmeticRequest) returns (ArithmeticResponse);
+  rpc Subtract (ArithmeticRequest) returns (ArithmeticResponse);
+  rpc Divide (ArithmeticRequest) returns (ArithmeticResponse);
+}
+
+message ArithmeticRequest {
+  int32 a = 1;
+  int32 b = 2;
+}
+
+message ArithmeticResponse {
+  int32 result = 1;
+}

@@ -1,0 +1,12 @@
+Checks: >
+  -*,                   
+  readability-*,        
+  modernize-*,          
+  performance-*,
+  -readability-identifier-length
+WarningsAsErrors: '*'
+
+CheckOptions:
+  - key: readability-tab-width
+    value: 4
+
