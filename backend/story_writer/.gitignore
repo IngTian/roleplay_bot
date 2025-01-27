@@ -1,8 +1,1 @@
-# Build files.
-/cmake-build-debug
-/build
-
-# IDE-related files.
-/.idea
-/.DS_Store
 
