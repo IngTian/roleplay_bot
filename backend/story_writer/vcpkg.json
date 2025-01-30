@@ -1,0 +1,19 @@
+{
+  "name": "story-writer",
+  "version-string": "1.0.0",
+  "builtin-baseline": "73ee328162aa172b49e7990f99db07778b644281",
+  "overrides": [
+    {
+      "name": "grpc",
+      "version": "1.68.2"
+    },
+    {
+      "name": "protobuf",
+      "version": "5.29.2"
+    },
+    {
+      "name": "spdlog",
+      "version": "1.15.0#1"
+    }
+  ]
+}
