@@ -9,7 +9,6 @@ set(CMAKE_CXX_CLANG_TIDY ${CLANG_TIDY_PATH})
 # Find dependencies.
 find_package(Protobuf REQUIRED CONFIG)
 find_package(gRPC REQUIRED CONFIG)
-find_package(fmt REQUIRED CONFIG)
 find_package(spdlog REQUIRED CONFIG)
 
 # Add source directory.

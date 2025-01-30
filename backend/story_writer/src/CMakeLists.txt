@@ -14,7 +14,7 @@ set_source_files_properties(${PROTO_HDRS} PROPERTIES SKIP_LINTING ON)
 # Define the server executable.
 add_executable(server server.cpp ${PROTO_SRCS} ${GRPC_SRCS})
 target_include_directories(server PRIVATE ${CMAKE_SOURCE_DIR}/proto)
-target_link_libraries(server fmt::fmt gRPC::grpc++ protobuf::libprotobuf spdlog::spdlog)
+target_link_libraries(server gRPC::grpc++ protobuf::libprotobuf spdlog::spdlog)
 
 # Define the client executable.
 add_executable(client client.cpp ${PROTO_SRCS} ${GRPC_SRCS})
