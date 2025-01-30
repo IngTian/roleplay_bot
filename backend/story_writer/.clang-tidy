@@ -1,0 +1,25 @@
+Checks: >
+  -*,
+  bugprone-*,
+  performance-*,
+  readability-*,
+  modernize-*,
+  misc-*,
+  cppcoreguidelines-*,
+  clang-analyzer-*,
+  google-*,
+  -modernize-use-trailing-return-type,  # Disable forcing trailing return types
+  -cppcoreguidelines-owning-memory,     # Avoid warnings for smart pointers
+  -cppcoreguidelines-pro-bounds-pointer-arithmetic, # Allow pointer arithmetic
+  -google-runtime-references, # Allow non-const references
+  -readability-magic-numbers  # Don't warn about magic numbers
+WarningsAsErrors: >
+  *,
+  -misc-unused-parameters,
+  -misc-include-cleaner
+FormatStyle: file
+
+CheckOptions:
+  - key: readability-tab-width
+    value: 4
+
