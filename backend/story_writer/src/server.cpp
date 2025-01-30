@@ -1,59 +1,59 @@
 #include <iostream>
 #include <string>
 #include <grpcpp/grpcpp.h>
-#include "calculator.grpc.pb.h"
+#include "story_writer.grpc.pb.h"
 
 using grpc::Server;
 using grpc::ServerBuilder;
 using grpc::ServerContext;
 using grpc::Status;
-using calculator::Calculator;
-using calculator::ArithmeticRequest;
-using calculator::ArithmeticResponse;
 
 // Service Implementation
-class CalculatorServiceImpl final : public Calculator::Service {
-    auto Add(
+class CalculatorServiceImpl final : public roleplay_bot::ai::StoryWriter::Service {
+    auto InitializeSession(
         ServerContext *context,
-        const ArithmeticRequest *request,
-        ArithmeticResponse *response
+        const roleplay_bot::ai::InitializeSessionRequest *request,
+        roleplay_bot::ai::InitializeSessionResponse *response
     ) -> Status override {
-        const int result = request->a() + request->b();
-        response->set_result(result);
-        std::cout << "Add called with: " << request->a() << " + " << request->b() << " = " << result << '\n';
+        // TODO: Implement the service.
+        const std::string session_id = "100";
+        response->set_session_id(session_id);
         return Status::OK;
     }
 
-    auto Multiply(
+    auto GetSessionConfig(
         ServerContext *context,
-        const ArithmeticRequest *request,
-        ArithmeticResponse *response
+        const roleplay_bot::ai::GetSessionConfigRequest *request,
+        roleplay_bot::ai::GetSessionConfigResponse *response
     ) -> Status override {
-        const int result = request->a() * request->b();
-        response->set_result(result);
-        std::cout << "Multiply called with: " << request->a() << " * " << request->b() << " = " << result << '\n';
+        // TODO: Implement the service.
         return Status::OK;
     }
 
-    auto Subtract(
+    auto WriteStory(
         ServerContext *context,
-        const ArithmeticRequest *request,
-        ArithmeticResponse *response
+        const roleplay_bot::ai::WriteStoryRequest *request,
+        roleplay_bot::ai::WriteStoryResponse *response
     ) -> Status override {
-        const int result = request->a() - request->b();
-        response->set_result(result);
-        std::cout << "Subtract called with: " << request->a() << " - " << request->b() << " = " << result << '\n';
+        // TODO: Implement the service.
         return Status::OK;
     }
 
-    auto Divide(
+    auto GetStoryHistory(
         ServerContext *context,
-        const ArithmeticRequest *request,
-        ArithmeticResponse *response
+        const roleplay_bot::ai::GetStoryHistoryRequest *request,
+        roleplay_bot::ai::GetStoryHistoryResponse *response
     ) -> Status override {
-        const int result = request->a() / request->b();
-        response->set_result(result);
-        std::cout << "Divide called with: " << request->a() << " / " << request->b() << " = " << result << '\n';
+        // TODO: Implement the service.
+        return Status::OK;
+    }
+
+    auto DeleteSession(
+        ServerContext *context,
+        const roleplay_bot::ai::DeleteSessionRequest *request,
+        roleplay_bot::ai::DeleteSessionResponse *response
+    ) -> Status override {
+        // TODO: Implement the service.
         return Status::OK;
     }
 };

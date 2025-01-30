@@ -3,9 +3,6 @@ cmake_minimum_required(VERSION 3.20)
 # Collect all source files.
 set(SOURCE_FILES server.cpp client.cpp)
 
-# Compile Protobuf and gRPC services.
-set(PROTO_PATH ../calculator.proto)
-
 # Collect all .cc files in the proto/ directory
 file(GLOB PROTO_SRCS "${CMAKE_SOURCE_DIR}/proto/*.pb.cc" "${CMAKE_SOURCE_DIR}/proto/*.grpc.pb.cc")
 set_source_files_properties(${PROTO_SRCS} PROPERTIES SKIP_LINTING ON)
