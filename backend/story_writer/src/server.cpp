@@ -2,6 +2,7 @@
 #include <string>
 #include <grpcpp/grpcpp.h>
 #include "story_writer.grpc.pb.h"
+#include "spdlog/spdlog.h"
 
 using grpc::Server;
 using grpc::ServerBuilder;
@@ -16,6 +17,7 @@ class CalculatorServiceImpl final : public roleplay_bot::ai::StoryWriter::Servic
         roleplay_bot::ai::InitializeSessionResponse *response
     ) -> Status override {
         // TODO: Implement the service.
+        spdlog::info("InitializeSession called");
         const std::string session_id = "100";
         response->set_session_id(session_id);
         return Status::OK;
