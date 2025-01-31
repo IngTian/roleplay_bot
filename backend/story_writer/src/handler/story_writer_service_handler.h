@@ -2,8 +2,8 @@
 // Created by Beowulf Hrothgar on 2025-01-31.
 //
 
-#ifndef STORYWRITERSERVICEHANDLER_H
-#define STORYWRITERSERVICEHANDLER_H
+#ifndef STORY_WRITER_SERVICE_HANDLER_H
+#define STORY_WRITER_SERVICE_HANDLER_H
 #include <story_writer.grpc.pb.h>
 
 namespace handler {
@@ -41,4 +41,4 @@ namespace handler {
     };
 } // namespace handler
 
-#endif //STORYWRITERSERVICEHANDLER_H
+#endif //STORY_WRITER_SERVICE_HANDLER_H
