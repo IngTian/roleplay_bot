@@ -11,7 +11,6 @@ namespace {
     void RunServer() {
         const std::string server_address("0.0.0.0:50051");
         handler::StoryWriterServiceHandler service;
-
         ServerBuilder builder;
         builder.AddListeningPort(server_address, grpc::InsecureServerCredentials());
         builder.RegisterService(&service);
