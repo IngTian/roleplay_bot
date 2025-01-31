@@ -10,8 +10,6 @@ namespace handler {
         const roleplay_bot::ai::InitializeSessionRequest *request,
         roleplay_bot::ai::InitializeSessionResponse *response
     ) -> grpc::Status {
-        const std::string session_id = "100";
-        response->set_session_id(session_id);
         return grpc::Status::OK;
     }
 
