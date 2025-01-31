@@ -5,6 +5,7 @@ target_link_libraries(server
         protobuf::libprotobuf
         spdlog::spdlog
         proto_lib
+        app
         handler_lib
 )
 
@@ -17,4 +18,5 @@ target_link_libraries(client
 )
 
 # Add subdirectories.
+add_subdirectory(app)
 add_subdirectory(handler)

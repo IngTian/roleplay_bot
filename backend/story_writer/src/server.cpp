@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <grpcpp/grpcpp.h>
+
+#include "app/init_clients.h"
 #include "handler/story_writer_service_handler.h"
 #include "spdlog/spdlog.h"
 
@@ -15,13 +17,14 @@ namespace {
         builder.AddListeningPort(server_address, grpc::InsecureServerCredentials());
         builder.RegisterService(&service);
         const std::unique_ptr<Server> server(builder.BuildAndStart());
-        std::cout << "Server listening on: " << server_address << '\n';
+        spdlog::info("[RunServer] server listening on: {}", server_address);
         server->Wait();
     }
 } // namespace
 
 auto main() -> int {
     try {
+        app::init_clients();
         RunServer();
     } catch (const std::exception &e) {
         spdlog::error("system crashed due to: {}", e.what());
