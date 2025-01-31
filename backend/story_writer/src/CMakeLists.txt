@@ -5,3 +5,6 @@ target_link_libraries(server gRPC::grpc++ protobuf::libprotobuf proto_lib spdlog
 # Define the client executable.
 add_executable(client client.cpp)
 target_link_libraries(client gRPC::grpc++ protobuf::libprotobuf proto_lib)
+
+# Add subdirectories.
+add_subdirectory(handler)
