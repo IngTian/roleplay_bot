@@ -30,5 +30,9 @@ export GRPC_CPP_PLUGIN_PATH=<Your grpc_cpp_plugin path>
 #### Finally, run the `protoc` compiler at the project root.
 
 ```bash
- protoc29.0 --grpc_out=./proto --cpp_out=./proto --plugin=protoc-gen-grpc="${GRPC_CPP_PLUGIN_PATH}" ./story_writer.proto
+ protoc29.0 --grpc_out=./proto \
+            --cpp_out=./proto \
+            --plugin=protoc-gen-grpc="${GRPC_CPP_PLUGIN_PATH}" \
+            -I ../proto \
+            story_writer.proto
 ```
