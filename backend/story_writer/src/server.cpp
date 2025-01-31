@@ -4,6 +4,7 @@
 
 #include "app/init_clients.h"
 #include "handler/story_writer_service_handler.h"
+#include "interceptors/logging_interceptor.h"
 #include "spdlog/spdlog.h"
 
 using grpc::Server;
@@ -16,6 +17,9 @@ namespace {
         ServerBuilder builder;
         builder.AddListeningPort(server_address, grpc::InsecureServerCredentials());
         builder.RegisterService(&service);
+        std::vector<std::unique_ptr<grpc::experimental::ServerInterceptorFactoryInterface> > interceptor_creators;
+        interceptor_creators.push_back(std::make_unique<interceptors::LoggingInterceptorFactory>());
+        builder.experimental().SetInterceptorCreators(std::move(interceptor_creators));
         const std::unique_ptr<Server> server(builder.BuildAndStart());
         spdlog::info("[RunServer] server listening on: {}", server_address);
         server->Wait();

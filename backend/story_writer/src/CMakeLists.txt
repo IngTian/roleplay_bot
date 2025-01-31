@@ -6,6 +6,7 @@ target_link_libraries(server
         spdlog::spdlog
         proto_lib
         app_lib
+        interceptors_lib
         handler_lib
 )
 
