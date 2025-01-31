@@ -12,4 +12,5 @@ find_package(gRPC REQUIRED CONFIG)
 find_package(spdlog REQUIRED CONFIG)
 
 # Add source directory.
+add_subdirectory(proto)
 add_subdirectory(src)
