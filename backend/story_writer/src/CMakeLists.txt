@@ -6,8 +6,8 @@ target_link_libraries(server
         spdlog::spdlog
         proto_lib
         app_lib
-        interceptors_lib
-        handler_lib
+        middleware_lib
+        services_lib
 )
 
 # Define the client executable.
@@ -20,5 +20,5 @@ target_link_libraries(client
 
 # Add subdirectories.
 add_subdirectory(app)
-add_subdirectory(interceptors)
-add_subdirectory(handler)
+add_subdirectory(middleware)
+add_subdirectory(services)

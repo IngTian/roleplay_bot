@@ -2,7 +2,7 @@
 // Created by Beowulf Hrothgar on 2025-01-31.
 //
 
-#include "story_writer_service_handler.h"
+#include "story_writer_service.h"
 
 namespace handler {
     auto StoryWriterServiceHandler::InitializeSession(

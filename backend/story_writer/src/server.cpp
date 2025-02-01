@@ -3,8 +3,8 @@
 #include <grpcpp/grpcpp.h>
 
 #include "app/init_clients.h"
-#include "handler/story_writer_service_handler.h"
-#include "interceptors/logging_interceptor.h"
+#include "services/story_writer_service.h"
+#include "middleware/logging_interceptor.h"
 #include "spdlog/spdlog.h"
 
 using grpc::Server;
