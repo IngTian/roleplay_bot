@@ -10,6 +10,8 @@ set(CMAKE_CXX_CLANG_TIDY ${CLANG_TIDY_PATH})
 find_package(Protobuf REQUIRED CONFIG)
 find_package(gRPC REQUIRED CONFIG)
 find_package(spdlog REQUIRED CONFIG)
+find_package(CURL REQUIRED)
 
 # Add source directory.
+add_subdirectory(proto)
 add_subdirectory(src)

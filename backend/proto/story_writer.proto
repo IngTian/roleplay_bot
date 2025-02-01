@@ -16,13 +16,11 @@ enum Model {
 
 message InitializeSessionRequest {
   Model model = 1;
-  string user_name = 2;
-  string character_name = 3;
-  string system_config = 4;
-  double temperature = 5;
-  double top_p = 6;
-  uint32 top_k = 7;
-  uint32 max_length = 8;
+  string system_config = 2;
+  double temperature = 3;
+  double top_p = 4;
+  uint32 top_k = 5;
+  uint32 max_length = 6;
 }
 
 message InitializeSessionResponse {
@@ -59,14 +57,12 @@ message GetSessionConfigRequest {
 
 message GetSessionConfigResponse {
   Model model = 1;
-  string user_name = 2;
-  string character_name = 3;
-  string system_config = 4;
-  double temperature = 5;
-  double top_p = 6;
-  uint32 top_k = 7;
-  uint32 max_length = 8;
-  uint64 created_time = 9;
+  string system_config = 2;
+  double temperature = 3;
+  double top_p = 4;
+  uint32 top_k = 5;
+  uint32 max_length = 6;
+  uint64 created_time = 7;
 }
 
 message DeleteSessionRequest {

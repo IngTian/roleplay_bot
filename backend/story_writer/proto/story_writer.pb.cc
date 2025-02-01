@@ -144,18 +144,12 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 
 inline constexpr InitializeSessionRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
-      : user_name_(
+      : system_config_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
-        character_name_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
-        system_config_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
+        temperature_{0},
         model_{static_cast< ::roleplay_bot::ai::Model >(0)},
         top_k_{0u},
-        temperature_{0},
         top_p_{0},
         max_length_{0u},
         _cached_size_{0} {}
@@ -209,18 +203,12 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 
 inline constexpr GetSessionConfigResponse::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
-      : user_name_(
+      : system_config_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
-        character_name_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
-        system_config_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
+        temperature_{0},
         model_{static_cast< ::roleplay_bot::ai::Model >(0)},
         top_k_{0u},
-        temperature_{0},
         top_p_{0},
         created_time_{::uint64_t{0u}},
         max_length_{0u},
@@ -371,8 +359,6 @@ const ::uint32_t
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
         PROTOBUF_FIELD_OFFSET(::roleplay_bot::ai::InitializeSessionRequest, _impl_.model_),
-        PROTOBUF_FIELD_OFFSET(::roleplay_bot::ai::InitializeSessionRequest, _impl_.user_name_),
-        PROTOBUF_FIELD_OFFSET(::roleplay_bot::ai::InitializeSessionRequest, _impl_.character_name_),
         PROTOBUF_FIELD_OFFSET(::roleplay_bot::ai::InitializeSessionRequest, _impl_.system_config_),
         PROTOBUF_FIELD_OFFSET(::roleplay_bot::ai::InitializeSessionRequest, _impl_.temperature_),
         PROTOBUF_FIELD_OFFSET(::roleplay_bot::ai::InitializeSessionRequest, _impl_.top_p_),
@@ -454,8 +440,6 @@ const ::uint32_t
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
         PROTOBUF_FIELD_OFFSET(::roleplay_bot::ai::GetSessionConfigResponse, _impl_.model_),
-        PROTOBUF_FIELD_OFFSET(::roleplay_bot::ai::GetSessionConfigResponse, _impl_.user_name_),
-        PROTOBUF_FIELD_OFFSET(::roleplay_bot::ai::GetSessionConfigResponse, _impl_.character_name_),
         PROTOBUF_FIELD_OFFSET(::roleplay_bot::ai::GetSessionConfigResponse, _impl_.system_config_),
         PROTOBUF_FIELD_OFFSET(::roleplay_bot::ai::GetSessionConfigResponse, _impl_.temperature_),
         PROTOBUF_FIELD_OFFSET(::roleplay_bot::ai::GetSessionConfigResponse, _impl_.top_p_),
@@ -485,16 +469,16 @@ const ::uint32_t
 static const ::_pbi::MigrationSchema
     schemas[] ABSL_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
         {0, -1, -1, sizeof(::roleplay_bot::ai::InitializeSessionRequest)},
-        {16, -1, -1, sizeof(::roleplay_bot::ai::InitializeSessionResponse)},
-        {25, -1, -1, sizeof(::roleplay_bot::ai::WriteStoryRequest)},
-        {35, -1, -1, sizeof(::roleplay_bot::ai::WriteStoryResponse)},
-        {44, -1, -1, sizeof(::roleplay_bot::ai::GetStoryHistoryRequest)},
-        {53, -1, -1, sizeof(::roleplay_bot::ai::StoryDetails)},
-        {64, -1, -1, sizeof(::roleplay_bot::ai::GetStoryHistoryResponse)},
-        {74, -1, -1, sizeof(::roleplay_bot::ai::GetSessionConfigRequest)},
-        {83, -1, -1, sizeof(::roleplay_bot::ai::GetSessionConfigResponse)},
-        {100, -1, -1, sizeof(::roleplay_bot::ai::DeleteSessionRequest)},
-        {109, -1, -1, sizeof(::roleplay_bot::ai::DeleteSessionResponse)},
+        {14, -1, -1, sizeof(::roleplay_bot::ai::InitializeSessionResponse)},
+        {23, -1, -1, sizeof(::roleplay_bot::ai::WriteStoryRequest)},
+        {33, -1, -1, sizeof(::roleplay_bot::ai::WriteStoryResponse)},
+        {42, -1, -1, sizeof(::roleplay_bot::ai::GetStoryHistoryRequest)},
+        {51, -1, -1, sizeof(::roleplay_bot::ai::StoryDetails)},
+        {62, -1, -1, sizeof(::roleplay_bot::ai::GetStoryHistoryResponse)},
+        {72, -1, -1, sizeof(::roleplay_bot::ai::GetSessionConfigRequest)},
+        {81, -1, -1, sizeof(::roleplay_bot::ai::GetSessionConfigResponse)},
+        {96, -1, -1, sizeof(::roleplay_bot::ai::DeleteSessionRequest)},
+        {105, -1, -1, sizeof(::roleplay_bot::ai::DeleteSessionResponse)},
 };
 static const ::_pb::Message* const file_default_instances[] = {
     &::roleplay_bot::ai::_InitializeSessionRequest_default_instance_._instance,
@@ -511,50 +495,48 @@ static const ::_pb::Message* const file_default_instances[] = {
 };
 const char descriptor_table_protodef_story_5fwriter_2eproto[] ABSL_ATTRIBUTE_SECTION_VARIABLE(
     protodesc_cold) = {
-    "\n\022story_writer.proto\022\017roleplay_bot.ai\"\312\001"
+    "\n\022story_writer.proto\022\017roleplay_bot.ai\"\237\001"
     "\n\030InitializeSessionRequest\022%\n\005model\030\001 \001("
-    "\0162\026.roleplay_bot.ai.Model\022\021\n\tuser_name\030\002"
-    " \001(\t\022\026\n\016character_name\030\003 \001(\t\022\025\n\rsystem_c"
-    "onfig\030\004 \001(\t\022\023\n\013temperature\030\005 \001(\001\022\r\n\005top_"
-    "p\030\006 \001(\001\022\r\n\005top_k\030\007 \001(\r\022\022\n\nmax_length\030\010 \001"
-    "(\r\"/\n\031InitializeSessionResponse\022\022\n\nsessi"
-    "on_id\030\001 \001(\t\"7\n\021WriteStoryRequest\022\022\n\nsess"
-    "ion_id\030\001 \001(\t\022\016\n\006prompt\030\002 \001(\t\"#\n\022WriteSto"
-    "ryResponse\022\r\n\005story\030\001 \001(\t\",\n\026GetStoryHis"
-    "toryRequest\022\022\n\nsession_id\030\001 \001(\t\"C\n\014Story"
-    "Details\022\016\n\006prompt\030\001 \001(\t\022\r\n\005story\030\002 \001(\t\022\024"
-    "\n\014created_time\030\003 \001(\004\"^\n\027GetStoryHistoryR"
-    "esponse\022\025\n\rsystem_config\030\001 \001(\t\022,\n\005story\030"
-    "\002 \003(\0132\035.roleplay_bot.ai.StoryDetails\"-\n\027"
-    "GetSessionConfigRequest\022\022\n\nsession_id\030\001 "
-    "\001(\t\"\340\001\n\030GetSessionConfigResponse\022%\n\005mode"
-    "l\030\001 \001(\0162\026.roleplay_bot.ai.Model\022\021\n\tuser_"
-    "name\030\002 \001(\t\022\026\n\016character_name\030\003 \001(\t\022\025\n\rsy"
-    "stem_config\030\004 \001(\t\022\023\n\013temperature\030\005 \001(\001\022\r"
-    "\n\005top_p\030\006 \001(\001\022\r\n\005top_k\030\007 \001(\r\022\022\n\nmax_leng"
-    "th\030\010 \001(\r\022\024\n\014created_time\030\t \001(\004\"*\n\024Delete"
-    "SessionRequest\022\022\n\nsession_id\030\001 \001(\t\"/\n\025De"
-    "leteSessionResponse\022\026\n\016status_message\030\001 "
-    "\001(\t*\033\n\005Model\022\022\n\016Gemini_1_5_Pro\020\0002\377\003\n\013Sto"
-    "ryWriter\022j\n\021InitializeSession\022).roleplay"
-    "_bot.ai.InitializeSessionRequest\032*.rolep"
-    "lay_bot.ai.InitializeSessionResponse\022g\n\020"
-    "GetSessionConfig\022(.roleplay_bot.ai.GetSe"
-    "ssionConfigRequest\032).roleplay_bot.ai.Get"
-    "SessionConfigResponse\022U\n\nWriteStory\022\".ro"
-    "leplay_bot.ai.WriteStoryRequest\032#.rolepl"
-    "ay_bot.ai.WriteStoryResponse\022d\n\017GetStory"
-    "History\022\'.roleplay_bot.ai.GetStoryHistor"
-    "yRequest\032(.roleplay_bot.ai.GetStoryHisto"
-    "ryResponse\022^\n\rDeleteSession\022%.roleplay_b"
-    "ot.ai.DeleteSessionRequest\032&.roleplay_bo"
-    "t.ai.DeleteSessionResponseb\006proto3"
+    "\0162\026.roleplay_bot.ai.Model\022\025\n\rsystem_conf"
+    "ig\030\002 \001(\t\022\023\n\013temperature\030\003 \001(\001\022\r\n\005top_p\030\004"
+    " \001(\001\022\r\n\005top_k\030\005 \001(\r\022\022\n\nmax_length\030\006 \001(\r\""
+    "/\n\031InitializeSessionResponse\022\022\n\nsession_"
+    "id\030\001 \001(\t\"7\n\021WriteStoryRequest\022\022\n\nsession"
+    "_id\030\001 \001(\t\022\016\n\006prompt\030\002 \001(\t\"#\n\022WriteStoryR"
+    "esponse\022\r\n\005story\030\001 \001(\t\",\n\026GetStoryHistor"
+    "yRequest\022\022\n\nsession_id\030\001 \001(\t\"C\n\014StoryDet"
+    "ails\022\016\n\006prompt\030\001 \001(\t\022\r\n\005story\030\002 \001(\t\022\024\n\014c"
+    "reated_time\030\003 \001(\004\"^\n\027GetStoryHistoryResp"
+    "onse\022\025\n\rsystem_config\030\001 \001(\t\022,\n\005story\030\002 \003"
+    "(\0132\035.roleplay_bot.ai.StoryDetails\"-\n\027Get"
+    "SessionConfigRequest\022\022\n\nsession_id\030\001 \001(\t"
+    "\"\265\001\n\030GetSessionConfigResponse\022%\n\005model\030\001"
+    " \001(\0162\026.roleplay_bot.ai.Model\022\025\n\rsystem_c"
+    "onfig\030\002 \001(\t\022\023\n\013temperature\030\003 \001(\001\022\r\n\005top_"
+    "p\030\004 \001(\001\022\r\n\005top_k\030\005 \001(\r\022\022\n\nmax_length\030\006 \001"
+    "(\r\022\024\n\014created_time\030\007 \001(\004\"*\n\024DeleteSessio"
+    "nRequest\022\022\n\nsession_id\030\001 \001(\t\"/\n\025DeleteSe"
+    "ssionResponse\022\026\n\016status_message\030\001 \001(\t*\033\n"
+    "\005Model\022\022\n\016Gemini_1_5_Pro\020\0002\377\003\n\013StoryWrit"
+    "er\022j\n\021InitializeSession\022).roleplay_bot.a"
+    "i.InitializeSessionRequest\032*.roleplay_bo"
+    "t.ai.InitializeSessionResponse\022g\n\020GetSes"
+    "sionConfig\022(.roleplay_bot.ai.GetSessionC"
+    "onfigRequest\032).roleplay_bot.ai.GetSessio"
+    "nConfigResponse\022U\n\nWriteStory\022\".roleplay"
+    "_bot.ai.WriteStoryRequest\032#.roleplay_bot"
+    ".ai.WriteStoryResponse\022d\n\017GetStoryHistor"
+    "y\022\'.roleplay_bot.ai.GetStoryHistoryReque"
+    "st\032(.roleplay_bot.ai.GetStoryHistoryResp"
+    "onse\022^\n\rDeleteSession\022%.roleplay_bot.ai."
+    "DeleteSessionRequest\032&.roleplay_bot.ai.D"
+    "eleteSessionResponseb\006proto3"
 };
 static ::absl::once_flag descriptor_table_story_5fwriter_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_story_5fwriter_2eproto = {
     false,
     false,
-    1514,
+    1428,
     descriptor_table_protodef_story_5fwriter_2eproto,
     "story_writer.proto",
     &descriptor_table_story_5fwriter_2eproto_once,
@@ -596,9 +578,7 @@ InitializeSessionRequest::InitializeSessionRequest(::google::protobuf::Arena* ar
 inline PROTOBUF_NDEBUG_INLINE InitializeSessionRequest::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from, const ::roleplay_bot::ai::InitializeSessionRequest& from_msg)
-      : user_name_(arena, from.user_name_),
-        character_name_(arena, from.character_name_),
-        system_config_(arena, from.system_config_),
+      : system_config_(arena, from.system_config_),
         _cached_size_{0} {}
 
 InitializeSessionRequest::InitializeSessionRequest(
@@ -615,11 +595,11 @@ InitializeSessionRequest::InitializeSessionRequest(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
   ::memcpy(reinterpret_cast<char *>(&_impl_) +
-               offsetof(Impl_, model_),
+               offsetof(Impl_, temperature_),
            reinterpret_cast<const char *>(&from._impl_) +
-               offsetof(Impl_, model_),
+               offsetof(Impl_, temperature_),
            offsetof(Impl_, max_length_) -
-               offsetof(Impl_, model_) +
+               offsetof(Impl_, temperature_) +
                sizeof(Impl_::max_length_));
 
   // @@protoc_insertion_point(copy_constructor:roleplay_bot.ai.InitializeSessionRequest)
@@ -627,18 +607,16 @@ InitializeSessionRequest::InitializeSessionRequest(
 inline PROTOBUF_NDEBUG_INLINE InitializeSessionRequest::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
-      : user_name_(arena),
-        character_name_(arena),
-        system_config_(arena),
+      : system_config_(arena),
         _cached_size_{0} {}
 
 inline void InitializeSessionRequest::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
   ::memset(reinterpret_cast<char *>(&_impl_) +
-               offsetof(Impl_, model_),
+               offsetof(Impl_, temperature_),
            0,
            offsetof(Impl_, max_length_) -
-               offsetof(Impl_, model_) +
+               offsetof(Impl_, temperature_) +
                sizeof(Impl_::max_length_));
 }
 InitializeSessionRequest::~InitializeSessionRequest() {
@@ -649,8 +627,6 @@ inline void InitializeSessionRequest::SharedDtor(MessageLite& self) {
   InitializeSessionRequest& this_ = static_cast<InitializeSessionRequest&>(self);
   this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   ABSL_DCHECK(this_.GetArena() == nullptr);
-  this_._impl_.user_name_.Destroy();
-  this_._impl_.character_name_.Destroy();
   this_._impl_.system_config_.Destroy();
   this_._impl_.~Impl_();
 }
@@ -691,15 +667,15 @@ const ::google::protobuf::internal::ClassData* InitializeSessionRequest::GetClas
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<3, 8, 0, 93, 2> InitializeSessionRequest::_table_ = {
+const ::_pbi::TcParseTable<3, 6, 0, 62, 2> InitializeSessionRequest::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    8, 56,  // max_field_number, fast_idx_mask
+    6, 56,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967040,  // skipmap
+    4294967232,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    8,  // num_field_entries
+    6,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
     _class_data_.base(),
@@ -709,64 +685,52 @@ const ::_pbi::TcParseTable<3, 8, 0, 93, 2> InitializeSessionRequest::_table_ = {
     ::_pbi::TcParser::GetTable<::roleplay_bot::ai::InitializeSessionRequest>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    // uint32 max_length = 8;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(InitializeSessionRequest, _impl_.max_length_), 63>(),
-     {64, 63, 0, PROTOBUF_FIELD_OFFSET(InitializeSessionRequest, _impl_.max_length_)}},
+    {::_pbi::TcParser::MiniParse, {}},
     // .roleplay_bot.ai.Model model = 1;
     {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(InitializeSessionRequest, _impl_.model_), 63>(),
      {8, 63, 0, PROTOBUF_FIELD_OFFSET(InitializeSessionRequest, _impl_.model_)}},
-    // string user_name = 2;
+    // string system_config = 2;
     {::_pbi::TcParser::FastUS1,
-     {18, 63, 0, PROTOBUF_FIELD_OFFSET(InitializeSessionRequest, _impl_.user_name_)}},
-    // string character_name = 3;
-    {::_pbi::TcParser::FastUS1,
-     {26, 63, 0, PROTOBUF_FIELD_OFFSET(InitializeSessionRequest, _impl_.character_name_)}},
-    // string system_config = 4;
-    {::_pbi::TcParser::FastUS1,
-     {34, 63, 0, PROTOBUF_FIELD_OFFSET(InitializeSessionRequest, _impl_.system_config_)}},
-    // double temperature = 5;
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(InitializeSessionRequest, _impl_.system_config_)}},
+    // double temperature = 3;
     {::_pbi::TcParser::FastF64S1,
-     {41, 63, 0, PROTOBUF_FIELD_OFFSET(InitializeSessionRequest, _impl_.temperature_)}},
-    // double top_p = 6;
+     {25, 63, 0, PROTOBUF_FIELD_OFFSET(InitializeSessionRequest, _impl_.temperature_)}},
+    // double top_p = 4;
     {::_pbi::TcParser::FastF64S1,
-     {49, 63, 0, PROTOBUF_FIELD_OFFSET(InitializeSessionRequest, _impl_.top_p_)}},
-    // uint32 top_k = 7;
+     {33, 63, 0, PROTOBUF_FIELD_OFFSET(InitializeSessionRequest, _impl_.top_p_)}},
+    // uint32 top_k = 5;
     {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(InitializeSessionRequest, _impl_.top_k_), 63>(),
-     {56, 63, 0, PROTOBUF_FIELD_OFFSET(InitializeSessionRequest, _impl_.top_k_)}},
+     {40, 63, 0, PROTOBUF_FIELD_OFFSET(InitializeSessionRequest, _impl_.top_k_)}},
+    // uint32 max_length = 6;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(InitializeSessionRequest, _impl_.max_length_), 63>(),
+     {48, 63, 0, PROTOBUF_FIELD_OFFSET(InitializeSessionRequest, _impl_.max_length_)}},
+    {::_pbi::TcParser::MiniParse, {}},
   }}, {{
     65535, 65535
   }}, {{
     // .roleplay_bot.ai.Model model = 1;
     {PROTOBUF_FIELD_OFFSET(InitializeSessionRequest, _impl_.model_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kOpenEnum)},
-    // string user_name = 2;
-    {PROTOBUF_FIELD_OFFSET(InitializeSessionRequest, _impl_.user_name_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
-    // string character_name = 3;
-    {PROTOBUF_FIELD_OFFSET(InitializeSessionRequest, _impl_.character_name_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
-    // string system_config = 4;
+    // string system_config = 2;
     {PROTOBUF_FIELD_OFFSET(InitializeSessionRequest, _impl_.system_config_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
-    // double temperature = 5;
+    // double temperature = 3;
     {PROTOBUF_FIELD_OFFSET(InitializeSessionRequest, _impl_.temperature_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kDouble)},
-    // double top_p = 6;
+    // double top_p = 4;
     {PROTOBUF_FIELD_OFFSET(InitializeSessionRequest, _impl_.top_p_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kDouble)},
-    // uint32 top_k = 7;
+    // uint32 top_k = 5;
     {PROTOBUF_FIELD_OFFSET(InitializeSessionRequest, _impl_.top_k_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUInt32)},
-    // uint32 max_length = 8;
+    // uint32 max_length = 6;
     {PROTOBUF_FIELD_OFFSET(InitializeSessionRequest, _impl_.max_length_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUInt32)},
   }},
   // no aux_entries
   {{
-    "\50\0\11\16\15\0\0\0\0\0\0\0\0\0\0\0"
+    "\50\0\15\0\0\0\0\0"
     "roleplay_bot.ai.InitializeSessionRequest"
-    "user_name"
-    "character_name"
     "system_config"
   }},
 };
@@ -778,12 +742,10 @@ PROTOBUF_NOINLINE void InitializeSessionRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.user_name_.ClearToEmpty();
-  _impl_.character_name_.ClearToEmpty();
   _impl_.system_config_.ClearToEmpty();
-  ::memset(&_impl_.model_, 0, static_cast<::size_t>(
+  ::memset(&_impl_.temperature_, 0, static_cast<::size_t>(
       reinterpret_cast<char*>(&_impl_.max_length_) -
-      reinterpret_cast<char*>(&_impl_.model_)) + sizeof(_impl_.max_length_));
+      reinterpret_cast<char*>(&_impl_.temperature_)) + sizeof(_impl_.max_length_));
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
@@ -809,56 +771,40 @@ PROTOBUF_NOINLINE void InitializeSessionRequest::Clear() {
                 1, this_._internal_model(), target);
           }
 
-          // string user_name = 2;
-          if (!this_._internal_user_name().empty()) {
-            const std::string& _s = this_._internal_user_name();
-            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "roleplay_bot.ai.InitializeSessionRequest.user_name");
-            target = stream->WriteStringMaybeAliased(2, _s, target);
-          }
-
-          // string character_name = 3;
-          if (!this_._internal_character_name().empty()) {
-            const std::string& _s = this_._internal_character_name();
-            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "roleplay_bot.ai.InitializeSessionRequest.character_name");
-            target = stream->WriteStringMaybeAliased(3, _s, target);
-          }
-
-          // string system_config = 4;
+          // string system_config = 2;
           if (!this_._internal_system_config().empty()) {
             const std::string& _s = this_._internal_system_config();
             ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
                 _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "roleplay_bot.ai.InitializeSessionRequest.system_config");
-            target = stream->WriteStringMaybeAliased(4, _s, target);
+            target = stream->WriteStringMaybeAliased(2, _s, target);
           }
 
-          // double temperature = 5;
+          // double temperature = 3;
           if (::absl::bit_cast<::uint64_t>(this_._internal_temperature()) != 0) {
             target = stream->EnsureSpace(target);
             target = ::_pbi::WireFormatLite::WriteDoubleToArray(
-                5, this_._internal_temperature(), target);
+                3, this_._internal_temperature(), target);
           }
 
-          // double top_p = 6;
+          // double top_p = 4;
           if (::absl::bit_cast<::uint64_t>(this_._internal_top_p()) != 0) {
             target = stream->EnsureSpace(target);
             target = ::_pbi::WireFormatLite::WriteDoubleToArray(
-                6, this_._internal_top_p(), target);
+                4, this_._internal_top_p(), target);
           }
 
-          // uint32 top_k = 7;
+          // uint32 top_k = 5;
           if (this_._internal_top_k() != 0) {
             target = stream->EnsureSpace(target);
             target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
-                7, this_._internal_top_k(), target);
+                5, this_._internal_top_k(), target);
           }
 
-          // uint32 max_length = 8;
+          // uint32 max_length = 6;
           if (this_._internal_max_length() != 0) {
             target = stream->EnsureSpace(target);
             target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
-                8, this_._internal_max_length(), target);
+                6, this_._internal_max_length(), target);
           }
 
           if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
@@ -886,40 +832,30 @@ PROTOBUF_NOINLINE void InitializeSessionRequest::Clear() {
 
           ::_pbi::Prefetch5LinesFrom7Lines(&this_);
            {
-            // string user_name = 2;
-            if (!this_._internal_user_name().empty()) {
-              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
-                                              this_._internal_user_name());
-            }
-            // string character_name = 3;
-            if (!this_._internal_character_name().empty()) {
-              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
-                                              this_._internal_character_name());
-            }
-            // string system_config = 4;
+            // string system_config = 2;
             if (!this_._internal_system_config().empty()) {
               total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                               this_._internal_system_config());
+            }
+            // double temperature = 3;
+            if (::absl::bit_cast<::uint64_t>(this_._internal_temperature()) != 0) {
+              total_size += 9;
             }
             // .roleplay_bot.ai.Model model = 1;
             if (this_._internal_model() != 0) {
               total_size += 1 +
                             ::_pbi::WireFormatLite::EnumSize(this_._internal_model());
             }
-            // uint32 top_k = 7;
+            // uint32 top_k = 5;
             if (this_._internal_top_k() != 0) {
               total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
                   this_._internal_top_k());
             }
-            // double temperature = 5;
-            if (::absl::bit_cast<::uint64_t>(this_._internal_temperature()) != 0) {
-              total_size += 9;
-            }
-            // double top_p = 6;
+            // double top_p = 4;
             if (::absl::bit_cast<::uint64_t>(this_._internal_top_p()) != 0) {
               total_size += 9;
             }
-            // uint32 max_length = 8;
+            // uint32 max_length = 6;
             if (this_._internal_max_length() != 0) {
               total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
                   this_._internal_max_length());
@@ -937,23 +873,17 @@ void InitializeSessionRequest::MergeImpl(::google::protobuf::MessageLite& to_msg
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (!from._internal_user_name().empty()) {
-    _this->_internal_set_user_name(from._internal_user_name());
-  }
-  if (!from._internal_character_name().empty()) {
-    _this->_internal_set_character_name(from._internal_character_name());
-  }
   if (!from._internal_system_config().empty()) {
     _this->_internal_set_system_config(from._internal_system_config());
+  }
+  if (::absl::bit_cast<::uint64_t>(from._internal_temperature()) != 0) {
+    _this->_impl_.temperature_ = from._impl_.temperature_;
   }
   if (from._internal_model() != 0) {
     _this->_impl_.model_ = from._impl_.model_;
   }
   if (from._internal_top_k() != 0) {
     _this->_impl_.top_k_ = from._impl_.top_k_;
-  }
-  if (::absl::bit_cast<::uint64_t>(from._internal_temperature()) != 0) {
-    _this->_impl_.temperature_ = from._impl_.temperature_;
   }
   if (::absl::bit_cast<::uint64_t>(from._internal_top_p()) != 0) {
     _this->_impl_.top_p_ = from._impl_.top_p_;
@@ -977,15 +907,13 @@ void InitializeSessionRequest::InternalSwap(InitializeSessionRequest* PROTOBUF_R
   auto* arena = GetArena();
   ABSL_DCHECK_EQ(arena, other->GetArena());
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.user_name_, &other->_impl_.user_name_, arena);
-  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.character_name_, &other->_impl_.character_name_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.system_config_, &other->_impl_.system_config_, arena);
   ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(InitializeSessionRequest, _impl_.max_length_)
       + sizeof(InitializeSessionRequest::_impl_.max_length_)
-      - PROTOBUF_FIELD_OFFSET(InitializeSessionRequest, _impl_.model_)>(
-          reinterpret_cast<char*>(&_impl_.model_),
-          reinterpret_cast<char*>(&other->_impl_.model_));
+      - PROTOBUF_FIELD_OFFSET(InitializeSessionRequest, _impl_.temperature_)>(
+          reinterpret_cast<char*>(&_impl_.temperature_),
+          reinterpret_cast<char*>(&other->_impl_.temperature_));
 }
 
 ::google::protobuf::Metadata InitializeSessionRequest::GetMetadata() const {
@@ -2755,9 +2683,7 @@ GetSessionConfigResponse::GetSessionConfigResponse(::google::protobuf::Arena* ar
 inline PROTOBUF_NDEBUG_INLINE GetSessionConfigResponse::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from, const ::roleplay_bot::ai::GetSessionConfigResponse& from_msg)
-      : user_name_(arena, from.user_name_),
-        character_name_(arena, from.character_name_),
-        system_config_(arena, from.system_config_),
+      : system_config_(arena, from.system_config_),
         _cached_size_{0} {}
 
 GetSessionConfigResponse::GetSessionConfigResponse(
@@ -2774,11 +2700,11 @@ GetSessionConfigResponse::GetSessionConfigResponse(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
   ::memcpy(reinterpret_cast<char *>(&_impl_) +
-               offsetof(Impl_, model_),
+               offsetof(Impl_, temperature_),
            reinterpret_cast<const char *>(&from._impl_) +
-               offsetof(Impl_, model_),
+               offsetof(Impl_, temperature_),
            offsetof(Impl_, max_length_) -
-               offsetof(Impl_, model_) +
+               offsetof(Impl_, temperature_) +
                sizeof(Impl_::max_length_));
 
   // @@protoc_insertion_point(copy_constructor:roleplay_bot.ai.GetSessionConfigResponse)
@@ -2786,18 +2712,16 @@ GetSessionConfigResponse::GetSessionConfigResponse(
 inline PROTOBUF_NDEBUG_INLINE GetSessionConfigResponse::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
-      : user_name_(arena),
-        character_name_(arena),
-        system_config_(arena),
+      : system_config_(arena),
         _cached_size_{0} {}
 
 inline void GetSessionConfigResponse::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
   ::memset(reinterpret_cast<char *>(&_impl_) +
-               offsetof(Impl_, model_),
+               offsetof(Impl_, temperature_),
            0,
            offsetof(Impl_, max_length_) -
-               offsetof(Impl_, model_) +
+               offsetof(Impl_, temperature_) +
                sizeof(Impl_::max_length_));
 }
 GetSessionConfigResponse::~GetSessionConfigResponse() {
@@ -2808,8 +2732,6 @@ inline void GetSessionConfigResponse::SharedDtor(MessageLite& self) {
   GetSessionConfigResponse& this_ = static_cast<GetSessionConfigResponse&>(self);
   this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   ABSL_DCHECK(this_.GetArena() == nullptr);
-  this_._impl_.user_name_.Destroy();
-  this_._impl_.character_name_.Destroy();
   this_._impl_.system_config_.Destroy();
   this_._impl_.~Impl_();
 }
@@ -2850,15 +2772,15 @@ const ::google::protobuf::internal::ClassData* GetSessionConfigResponse::GetClas
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<4, 9, 0, 93, 2> GetSessionConfigResponse::_table_ = {
+const ::_pbi::TcParseTable<3, 7, 0, 62, 2> GetSessionConfigResponse::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    9, 120,  // max_field_number, fast_idx_mask
+    7, 56,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294966784,  // skipmap
+    4294967168,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    9,  // num_field_entries
+    7,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
     _class_data_.base(),
@@ -2872,73 +2794,53 @@ const ::_pbi::TcParseTable<4, 9, 0, 93, 2> GetSessionConfigResponse::_table_ = {
     // .roleplay_bot.ai.Model model = 1;
     {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(GetSessionConfigResponse, _impl_.model_), 63>(),
      {8, 63, 0, PROTOBUF_FIELD_OFFSET(GetSessionConfigResponse, _impl_.model_)}},
-    // string user_name = 2;
+    // string system_config = 2;
     {::_pbi::TcParser::FastUS1,
-     {18, 63, 0, PROTOBUF_FIELD_OFFSET(GetSessionConfigResponse, _impl_.user_name_)}},
-    // string character_name = 3;
-    {::_pbi::TcParser::FastUS1,
-     {26, 63, 0, PROTOBUF_FIELD_OFFSET(GetSessionConfigResponse, _impl_.character_name_)}},
-    // string system_config = 4;
-    {::_pbi::TcParser::FastUS1,
-     {34, 63, 0, PROTOBUF_FIELD_OFFSET(GetSessionConfigResponse, _impl_.system_config_)}},
-    // double temperature = 5;
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(GetSessionConfigResponse, _impl_.system_config_)}},
+    // double temperature = 3;
     {::_pbi::TcParser::FastF64S1,
-     {41, 63, 0, PROTOBUF_FIELD_OFFSET(GetSessionConfigResponse, _impl_.temperature_)}},
-    // double top_p = 6;
+     {25, 63, 0, PROTOBUF_FIELD_OFFSET(GetSessionConfigResponse, _impl_.temperature_)}},
+    // double top_p = 4;
     {::_pbi::TcParser::FastF64S1,
-     {49, 63, 0, PROTOBUF_FIELD_OFFSET(GetSessionConfigResponse, _impl_.top_p_)}},
-    // uint32 top_k = 7;
+     {33, 63, 0, PROTOBUF_FIELD_OFFSET(GetSessionConfigResponse, _impl_.top_p_)}},
+    // uint32 top_k = 5;
     {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(GetSessionConfigResponse, _impl_.top_k_), 63>(),
-     {56, 63, 0, PROTOBUF_FIELD_OFFSET(GetSessionConfigResponse, _impl_.top_k_)}},
-    // uint32 max_length = 8;
+     {40, 63, 0, PROTOBUF_FIELD_OFFSET(GetSessionConfigResponse, _impl_.top_k_)}},
+    // uint32 max_length = 6;
     {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(GetSessionConfigResponse, _impl_.max_length_), 63>(),
-     {64, 63, 0, PROTOBUF_FIELD_OFFSET(GetSessionConfigResponse, _impl_.max_length_)}},
-    // uint64 created_time = 9;
+     {48, 63, 0, PROTOBUF_FIELD_OFFSET(GetSessionConfigResponse, _impl_.max_length_)}},
+    // uint64 created_time = 7;
     {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(GetSessionConfigResponse, _impl_.created_time_), 63>(),
-     {72, 63, 0, PROTOBUF_FIELD_OFFSET(GetSessionConfigResponse, _impl_.created_time_)}},
-    {::_pbi::TcParser::MiniParse, {}},
-    {::_pbi::TcParser::MiniParse, {}},
-    {::_pbi::TcParser::MiniParse, {}},
-    {::_pbi::TcParser::MiniParse, {}},
-    {::_pbi::TcParser::MiniParse, {}},
-    {::_pbi::TcParser::MiniParse, {}},
+     {56, 63, 0, PROTOBUF_FIELD_OFFSET(GetSessionConfigResponse, _impl_.created_time_)}},
   }}, {{
     65535, 65535
   }}, {{
     // .roleplay_bot.ai.Model model = 1;
     {PROTOBUF_FIELD_OFFSET(GetSessionConfigResponse, _impl_.model_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kOpenEnum)},
-    // string user_name = 2;
-    {PROTOBUF_FIELD_OFFSET(GetSessionConfigResponse, _impl_.user_name_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
-    // string character_name = 3;
-    {PROTOBUF_FIELD_OFFSET(GetSessionConfigResponse, _impl_.character_name_), 0, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
-    // string system_config = 4;
+    // string system_config = 2;
     {PROTOBUF_FIELD_OFFSET(GetSessionConfigResponse, _impl_.system_config_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
-    // double temperature = 5;
+    // double temperature = 3;
     {PROTOBUF_FIELD_OFFSET(GetSessionConfigResponse, _impl_.temperature_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kDouble)},
-    // double top_p = 6;
+    // double top_p = 4;
     {PROTOBUF_FIELD_OFFSET(GetSessionConfigResponse, _impl_.top_p_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kDouble)},
-    // uint32 top_k = 7;
+    // uint32 top_k = 5;
     {PROTOBUF_FIELD_OFFSET(GetSessionConfigResponse, _impl_.top_k_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUInt32)},
-    // uint32 max_length = 8;
+    // uint32 max_length = 6;
     {PROTOBUF_FIELD_OFFSET(GetSessionConfigResponse, _impl_.max_length_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUInt32)},
-    // uint64 created_time = 9;
+    // uint64 created_time = 7;
     {PROTOBUF_FIELD_OFFSET(GetSessionConfigResponse, _impl_.created_time_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUInt64)},
   }},
   // no aux_entries
   {{
-    "\50\0\11\16\15\0\0\0\0\0\0\0\0\0\0\0"
+    "\50\0\15\0\0\0\0\0"
     "roleplay_bot.ai.GetSessionConfigResponse"
-    "user_name"
-    "character_name"
     "system_config"
   }},
 };
@@ -2950,12 +2852,10 @@ PROTOBUF_NOINLINE void GetSessionConfigResponse::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.user_name_.ClearToEmpty();
-  _impl_.character_name_.ClearToEmpty();
   _impl_.system_config_.ClearToEmpty();
-  ::memset(&_impl_.model_, 0, static_cast<::size_t>(
+  ::memset(&_impl_.temperature_, 0, static_cast<::size_t>(
       reinterpret_cast<char*>(&_impl_.max_length_) -
-      reinterpret_cast<char*>(&_impl_.model_)) + sizeof(_impl_.max_length_));
+      reinterpret_cast<char*>(&_impl_.temperature_)) + sizeof(_impl_.max_length_));
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
 
@@ -2981,63 +2881,47 @@ PROTOBUF_NOINLINE void GetSessionConfigResponse::Clear() {
                 1, this_._internal_model(), target);
           }
 
-          // string user_name = 2;
-          if (!this_._internal_user_name().empty()) {
-            const std::string& _s = this_._internal_user_name();
-            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "roleplay_bot.ai.GetSessionConfigResponse.user_name");
-            target = stream->WriteStringMaybeAliased(2, _s, target);
-          }
-
-          // string character_name = 3;
-          if (!this_._internal_character_name().empty()) {
-            const std::string& _s = this_._internal_character_name();
-            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "roleplay_bot.ai.GetSessionConfigResponse.character_name");
-            target = stream->WriteStringMaybeAliased(3, _s, target);
-          }
-
-          // string system_config = 4;
+          // string system_config = 2;
           if (!this_._internal_system_config().empty()) {
             const std::string& _s = this_._internal_system_config();
             ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
                 _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "roleplay_bot.ai.GetSessionConfigResponse.system_config");
-            target = stream->WriteStringMaybeAliased(4, _s, target);
+            target = stream->WriteStringMaybeAliased(2, _s, target);
           }
 
-          // double temperature = 5;
+          // double temperature = 3;
           if (::absl::bit_cast<::uint64_t>(this_._internal_temperature()) != 0) {
             target = stream->EnsureSpace(target);
             target = ::_pbi::WireFormatLite::WriteDoubleToArray(
-                5, this_._internal_temperature(), target);
+                3, this_._internal_temperature(), target);
           }
 
-          // double top_p = 6;
+          // double top_p = 4;
           if (::absl::bit_cast<::uint64_t>(this_._internal_top_p()) != 0) {
             target = stream->EnsureSpace(target);
             target = ::_pbi::WireFormatLite::WriteDoubleToArray(
-                6, this_._internal_top_p(), target);
+                4, this_._internal_top_p(), target);
           }
 
-          // uint32 top_k = 7;
+          // uint32 top_k = 5;
           if (this_._internal_top_k() != 0) {
             target = stream->EnsureSpace(target);
             target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
-                7, this_._internal_top_k(), target);
+                5, this_._internal_top_k(), target);
           }
 
-          // uint32 max_length = 8;
+          // uint32 max_length = 6;
           if (this_._internal_max_length() != 0) {
             target = stream->EnsureSpace(target);
             target = ::_pbi::WireFormatLite::WriteUInt32ToArray(
-                8, this_._internal_max_length(), target);
+                6, this_._internal_max_length(), target);
           }
 
-          // uint64 created_time = 9;
+          // uint64 created_time = 7;
           if (this_._internal_created_time() != 0) {
             target = stream->EnsureSpace(target);
             target = ::_pbi::WireFormatLite::WriteUInt64ToArray(
-                9, this_._internal_created_time(), target);
+                7, this_._internal_created_time(), target);
           }
 
           if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
@@ -3065,45 +2949,35 @@ PROTOBUF_NOINLINE void GetSessionConfigResponse::Clear() {
 
           ::_pbi::Prefetch5LinesFrom7Lines(&this_);
            {
-            // string user_name = 2;
-            if (!this_._internal_user_name().empty()) {
-              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
-                                              this_._internal_user_name());
-            }
-            // string character_name = 3;
-            if (!this_._internal_character_name().empty()) {
-              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
-                                              this_._internal_character_name());
-            }
-            // string system_config = 4;
+            // string system_config = 2;
             if (!this_._internal_system_config().empty()) {
               total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                               this_._internal_system_config());
+            }
+            // double temperature = 3;
+            if (::absl::bit_cast<::uint64_t>(this_._internal_temperature()) != 0) {
+              total_size += 9;
             }
             // .roleplay_bot.ai.Model model = 1;
             if (this_._internal_model() != 0) {
               total_size += 1 +
                             ::_pbi::WireFormatLite::EnumSize(this_._internal_model());
             }
-            // uint32 top_k = 7;
+            // uint32 top_k = 5;
             if (this_._internal_top_k() != 0) {
               total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
                   this_._internal_top_k());
             }
-            // double temperature = 5;
-            if (::absl::bit_cast<::uint64_t>(this_._internal_temperature()) != 0) {
-              total_size += 9;
-            }
-            // double top_p = 6;
+            // double top_p = 4;
             if (::absl::bit_cast<::uint64_t>(this_._internal_top_p()) != 0) {
               total_size += 9;
             }
-            // uint64 created_time = 9;
+            // uint64 created_time = 7;
             if (this_._internal_created_time() != 0) {
               total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(
                   this_._internal_created_time());
             }
-            // uint32 max_length = 8;
+            // uint32 max_length = 6;
             if (this_._internal_max_length() != 0) {
               total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(
                   this_._internal_max_length());
@@ -3121,23 +2995,17 @@ void GetSessionConfigResponse::MergeImpl(::google::protobuf::MessageLite& to_msg
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (!from._internal_user_name().empty()) {
-    _this->_internal_set_user_name(from._internal_user_name());
-  }
-  if (!from._internal_character_name().empty()) {
-    _this->_internal_set_character_name(from._internal_character_name());
-  }
   if (!from._internal_system_config().empty()) {
     _this->_internal_set_system_config(from._internal_system_config());
+  }
+  if (::absl::bit_cast<::uint64_t>(from._internal_temperature()) != 0) {
+    _this->_impl_.temperature_ = from._impl_.temperature_;
   }
   if (from._internal_model() != 0) {
     _this->_impl_.model_ = from._impl_.model_;
   }
   if (from._internal_top_k() != 0) {
     _this->_impl_.top_k_ = from._impl_.top_k_;
-  }
-  if (::absl::bit_cast<::uint64_t>(from._internal_temperature()) != 0) {
-    _this->_impl_.temperature_ = from._impl_.temperature_;
   }
   if (::absl::bit_cast<::uint64_t>(from._internal_top_p()) != 0) {
     _this->_impl_.top_p_ = from._impl_.top_p_;
@@ -3164,15 +3032,13 @@ void GetSessionConfigResponse::InternalSwap(GetSessionConfigResponse* PROTOBUF_R
   auto* arena = GetArena();
   ABSL_DCHECK_EQ(arena, other->GetArena());
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.user_name_, &other->_impl_.user_name_, arena);
-  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.character_name_, &other->_impl_.character_name_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.system_config_, &other->_impl_.system_config_, arena);
   ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(GetSessionConfigResponse, _impl_.max_length_)
       + sizeof(GetSessionConfigResponse::_impl_.max_length_)
-      - PROTOBUF_FIELD_OFFSET(GetSessionConfigResponse, _impl_.model_)>(
-          reinterpret_cast<char*>(&_impl_.model_),
-          reinterpret_cast<char*>(&other->_impl_.model_));
+      - PROTOBUF_FIELD_OFFSET(GetSessionConfigResponse, _impl_.temperature_)>(
+          reinterpret_cast<char*>(&_impl_.temperature_),
+          reinterpret_cast<char*>(&other->_impl_.temperature_));
 }
 
 ::google::protobuf::Metadata GetSessionConfigResponse::GetMetadata() const {
