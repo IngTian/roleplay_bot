@@ -1112,48 +1112,14 @@ class InitializeSessionRequest final : public ::google::protobuf::Message
 
   // accessors -------------------------------------------------------
   enum : int {
-    kUserNameFieldNumber = 2,
-    kCharacterNameFieldNumber = 3,
-    kSystemConfigFieldNumber = 4,
+    kSystemConfigFieldNumber = 2,
+    kTemperatureFieldNumber = 3,
     kModelFieldNumber = 1,
-    kTopKFieldNumber = 7,
-    kTemperatureFieldNumber = 5,
-    kTopPFieldNumber = 6,
-    kMaxLengthFieldNumber = 8,
+    kTopKFieldNumber = 5,
+    kTopPFieldNumber = 4,
+    kMaxLengthFieldNumber = 6,
   };
-  // string user_name = 2;
-  void clear_user_name() ;
-  const std::string& user_name() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_user_name(Arg_&& arg, Args_... args);
-  std::string* mutable_user_name();
-  PROTOBUF_NODISCARD std::string* release_user_name();
-  void set_allocated_user_name(std::string* value);
-
-  private:
-  const std::string& _internal_user_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_user_name(
-      const std::string& value);
-  std::string* _internal_mutable_user_name();
-
-  public:
-  // string character_name = 3;
-  void clear_character_name() ;
-  const std::string& character_name() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_character_name(Arg_&& arg, Args_... args);
-  std::string* mutable_character_name();
-  PROTOBUF_NODISCARD std::string* release_character_name();
-  void set_allocated_character_name(std::string* value);
-
-  private:
-  const std::string& _internal_character_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_character_name(
-      const std::string& value);
-  std::string* _internal_mutable_character_name();
-
-  public:
-  // string system_config = 4;
+  // string system_config = 2;
   void clear_system_config() ;
   const std::string& system_config() const;
   template <typename Arg_ = const std::string&, typename... Args_>
@@ -1169,6 +1135,16 @@ class InitializeSessionRequest final : public ::google::protobuf::Message
   std::string* _internal_mutable_system_config();
 
   public:
+  // double temperature = 3;
+  void clear_temperature() ;
+  double temperature() const;
+  void set_temperature(double value);
+
+  private:
+  double _internal_temperature() const;
+  void _internal_set_temperature(double value);
+
+  public:
   // .roleplay_bot.ai.Model model = 1;
   void clear_model() ;
   ::roleplay_bot::ai::Model model() const;
@@ -1179,7 +1155,7 @@ class InitializeSessionRequest final : public ::google::protobuf::Message
   void _internal_set_model(::roleplay_bot::ai::Model value);
 
   public:
-  // uint32 top_k = 7;
+  // uint32 top_k = 5;
   void clear_top_k() ;
   ::uint32_t top_k() const;
   void set_top_k(::uint32_t value);
@@ -1189,17 +1165,7 @@ class InitializeSessionRequest final : public ::google::protobuf::Message
   void _internal_set_top_k(::uint32_t value);
 
   public:
-  // double temperature = 5;
-  void clear_temperature() ;
-  double temperature() const;
-  void set_temperature(double value);
-
-  private:
-  double _internal_temperature() const;
-  void _internal_set_temperature(double value);
-
-  public:
-  // double top_p = 6;
+  // double top_p = 4;
   void clear_top_p() ;
   double top_p() const;
   void set_top_p(double value);
@@ -1209,7 +1175,7 @@ class InitializeSessionRequest final : public ::google::protobuf::Message
   void _internal_set_top_p(double value);
 
   public:
-  // uint32 max_length = 8;
+  // uint32 max_length = 6;
   void clear_max_length() ;
   ::uint32_t max_length() const;
   void set_max_length(::uint32_t value);
@@ -1224,8 +1190,8 @@ class InitializeSessionRequest final : public ::google::protobuf::Message
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      3, 8, 0,
-      93, 2>
+      3, 6, 0,
+      62, 2>
       _table_;
 
   friend class ::google::protobuf::MessageLite;
@@ -1242,12 +1208,10 @@ class InitializeSessionRequest final : public ::google::protobuf::Message
     inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                           ::google::protobuf::Arena* arena, const Impl_& from,
                           const InitializeSessionRequest& from_msg);
-    ::google::protobuf::internal::ArenaStringPtr user_name_;
-    ::google::protobuf::internal::ArenaStringPtr character_name_;
     ::google::protobuf::internal::ArenaStringPtr system_config_;
+    double temperature_;
     int model_;
     ::uint32_t top_k_;
-    double temperature_;
     double top_p_;
     ::uint32_t max_length_;
     ::google::protobuf::internal::CachedSize _cached_size_;
@@ -1600,49 +1564,15 @@ class GetSessionConfigResponse final : public ::google::protobuf::Message
 
   // accessors -------------------------------------------------------
   enum : int {
-    kUserNameFieldNumber = 2,
-    kCharacterNameFieldNumber = 3,
-    kSystemConfigFieldNumber = 4,
+    kSystemConfigFieldNumber = 2,
+    kTemperatureFieldNumber = 3,
     kModelFieldNumber = 1,
-    kTopKFieldNumber = 7,
-    kTemperatureFieldNumber = 5,
-    kTopPFieldNumber = 6,
-    kCreatedTimeFieldNumber = 9,
-    kMaxLengthFieldNumber = 8,
+    kTopKFieldNumber = 5,
+    kTopPFieldNumber = 4,
+    kCreatedTimeFieldNumber = 7,
+    kMaxLengthFieldNumber = 6,
   };
-  // string user_name = 2;
-  void clear_user_name() ;
-  const std::string& user_name() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_user_name(Arg_&& arg, Args_... args);
-  std::string* mutable_user_name();
-  PROTOBUF_NODISCARD std::string* release_user_name();
-  void set_allocated_user_name(std::string* value);
-
-  private:
-  const std::string& _internal_user_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_user_name(
-      const std::string& value);
-  std::string* _internal_mutable_user_name();
-
-  public:
-  // string character_name = 3;
-  void clear_character_name() ;
-  const std::string& character_name() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_character_name(Arg_&& arg, Args_... args);
-  std::string* mutable_character_name();
-  PROTOBUF_NODISCARD std::string* release_character_name();
-  void set_allocated_character_name(std::string* value);
-
-  private:
-  const std::string& _internal_character_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_character_name(
-      const std::string& value);
-  std::string* _internal_mutable_character_name();
-
-  public:
-  // string system_config = 4;
+  // string system_config = 2;
   void clear_system_config() ;
   const std::string& system_config() const;
   template <typename Arg_ = const std::string&, typename... Args_>
@@ -1658,6 +1588,16 @@ class GetSessionConfigResponse final : public ::google::protobuf::Message
   std::string* _internal_mutable_system_config();
 
   public:
+  // double temperature = 3;
+  void clear_temperature() ;
+  double temperature() const;
+  void set_temperature(double value);
+
+  private:
+  double _internal_temperature() const;
+  void _internal_set_temperature(double value);
+
+  public:
   // .roleplay_bot.ai.Model model = 1;
   void clear_model() ;
   ::roleplay_bot::ai::Model model() const;
@@ -1668,7 +1608,7 @@ class GetSessionConfigResponse final : public ::google::protobuf::Message
   void _internal_set_model(::roleplay_bot::ai::Model value);
 
   public:
-  // uint32 top_k = 7;
+  // uint32 top_k = 5;
   void clear_top_k() ;
   ::uint32_t top_k() const;
   void set_top_k(::uint32_t value);
@@ -1678,17 +1618,7 @@ class GetSessionConfigResponse final : public ::google::protobuf::Message
   void _internal_set_top_k(::uint32_t value);
 
   public:
-  // double temperature = 5;
-  void clear_temperature() ;
-  double temperature() const;
-  void set_temperature(double value);
-
-  private:
-  double _internal_temperature() const;
-  void _internal_set_temperature(double value);
-
-  public:
-  // double top_p = 6;
+  // double top_p = 4;
   void clear_top_p() ;
   double top_p() const;
   void set_top_p(double value);
@@ -1698,7 +1628,7 @@ class GetSessionConfigResponse final : public ::google::protobuf::Message
   void _internal_set_top_p(double value);
 
   public:
-  // uint64 created_time = 9;
+  // uint64 created_time = 7;
   void clear_created_time() ;
   ::uint64_t created_time() const;
   void set_created_time(::uint64_t value);
@@ -1708,7 +1638,7 @@ class GetSessionConfigResponse final : public ::google::protobuf::Message
   void _internal_set_created_time(::uint64_t value);
 
   public:
-  // uint32 max_length = 8;
+  // uint32 max_length = 6;
   void clear_max_length() ;
   ::uint32_t max_length() const;
   void set_max_length(::uint32_t value);
@@ -1723,8 +1653,8 @@ class GetSessionConfigResponse final : public ::google::protobuf::Message
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      4, 9, 0,
-      93, 2>
+      3, 7, 0,
+      62, 2>
       _table_;
 
   friend class ::google::protobuf::MessageLite;
@@ -1741,12 +1671,10 @@ class GetSessionConfigResponse final : public ::google::protobuf::Message
     inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                           ::google::protobuf::Arena* arena, const Impl_& from,
                           const GetSessionConfigResponse& from_msg);
-    ::google::protobuf::internal::ArenaStringPtr user_name_;
-    ::google::protobuf::internal::ArenaStringPtr character_name_;
     ::google::protobuf::internal::ArenaStringPtr system_config_;
+    double temperature_;
     int model_;
     ::uint32_t top_k_;
-    double temperature_;
     double top_p_;
     ::uint64_t created_time_;
     ::uint32_t max_length_;
@@ -2598,103 +2526,7 @@ inline void InitializeSessionRequest::_internal_set_model(::roleplay_bot::ai::Mo
   _impl_.model_ = value;
 }
 
-// string user_name = 2;
-inline void InitializeSessionRequest::clear_user_name() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.user_name_.ClearToEmpty();
-}
-inline const std::string& InitializeSessionRequest::user_name() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:roleplay_bot.ai.InitializeSessionRequest.user_name)
-  return _internal_user_name();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void InitializeSessionRequest::set_user_name(Arg_&& arg,
-                                                     Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.user_name_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:roleplay_bot.ai.InitializeSessionRequest.user_name)
-}
-inline std::string* InitializeSessionRequest::mutable_user_name() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_user_name();
-  // @@protoc_insertion_point(field_mutable:roleplay_bot.ai.InitializeSessionRequest.user_name)
-  return _s;
-}
-inline const std::string& InitializeSessionRequest::_internal_user_name() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.user_name_.Get();
-}
-inline void InitializeSessionRequest::_internal_set_user_name(const std::string& value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.user_name_.Set(value, GetArena());
-}
-inline std::string* InitializeSessionRequest::_internal_mutable_user_name() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _impl_.user_name_.Mutable( GetArena());
-}
-inline std::string* InitializeSessionRequest::release_user_name() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:roleplay_bot.ai.InitializeSessionRequest.user_name)
-  return _impl_.user_name_.Release();
-}
-inline void InitializeSessionRequest::set_allocated_user_name(std::string* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.user_name_.SetAllocated(value, GetArena());
-  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.user_name_.IsDefault()) {
-    _impl_.user_name_.Set("", GetArena());
-  }
-  // @@protoc_insertion_point(field_set_allocated:roleplay_bot.ai.InitializeSessionRequest.user_name)
-}
-
-// string character_name = 3;
-inline void InitializeSessionRequest::clear_character_name() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.character_name_.ClearToEmpty();
-}
-inline const std::string& InitializeSessionRequest::character_name() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:roleplay_bot.ai.InitializeSessionRequest.character_name)
-  return _internal_character_name();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void InitializeSessionRequest::set_character_name(Arg_&& arg,
-                                                     Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.character_name_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:roleplay_bot.ai.InitializeSessionRequest.character_name)
-}
-inline std::string* InitializeSessionRequest::mutable_character_name() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_character_name();
-  // @@protoc_insertion_point(field_mutable:roleplay_bot.ai.InitializeSessionRequest.character_name)
-  return _s;
-}
-inline const std::string& InitializeSessionRequest::_internal_character_name() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.character_name_.Get();
-}
-inline void InitializeSessionRequest::_internal_set_character_name(const std::string& value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.character_name_.Set(value, GetArena());
-}
-inline std::string* InitializeSessionRequest::_internal_mutable_character_name() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _impl_.character_name_.Mutable( GetArena());
-}
-inline std::string* InitializeSessionRequest::release_character_name() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:roleplay_bot.ai.InitializeSessionRequest.character_name)
-  return _impl_.character_name_.Release();
-}
-inline void InitializeSessionRequest::set_allocated_character_name(std::string* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.character_name_.SetAllocated(value, GetArena());
-  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.character_name_.IsDefault()) {
-    _impl_.character_name_.Set("", GetArena());
-  }
-  // @@protoc_insertion_point(field_set_allocated:roleplay_bot.ai.InitializeSessionRequest.character_name)
-}
-
-// string system_config = 4;
+// string system_config = 2;
 inline void InitializeSessionRequest::clear_system_config() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.system_config_.ClearToEmpty();
@@ -2742,7 +2574,7 @@ inline void InitializeSessionRequest::set_allocated_system_config(std::string* v
   // @@protoc_insertion_point(field_set_allocated:roleplay_bot.ai.InitializeSessionRequest.system_config)
 }
 
-// double temperature = 5;
+// double temperature = 3;
 inline void InitializeSessionRequest::clear_temperature() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.temperature_ = 0;
@@ -2764,7 +2596,7 @@ inline void InitializeSessionRequest::_internal_set_temperature(double value) {
   _impl_.temperature_ = value;
 }
 
-// double top_p = 6;
+// double top_p = 4;
 inline void InitializeSessionRequest::clear_top_p() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.top_p_ = 0;
@@ -2786,7 +2618,7 @@ inline void InitializeSessionRequest::_internal_set_top_p(double value) {
   _impl_.top_p_ = value;
 }
 
-// uint32 top_k = 7;
+// uint32 top_k = 5;
 inline void InitializeSessionRequest::clear_top_k() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.top_k_ = 0u;
@@ -2808,7 +2640,7 @@ inline void InitializeSessionRequest::_internal_set_top_k(::uint32_t value) {
   _impl_.top_k_ = value;
 }
 
-// uint32 max_length = 8;
+// uint32 max_length = 6;
 inline void InitializeSessionRequest::clear_max_length() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.max_length_ = 0u;
@@ -3387,103 +3219,7 @@ inline void GetSessionConfigResponse::_internal_set_model(::roleplay_bot::ai::Mo
   _impl_.model_ = value;
 }
 
-// string user_name = 2;
-inline void GetSessionConfigResponse::clear_user_name() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.user_name_.ClearToEmpty();
-}
-inline const std::string& GetSessionConfigResponse::user_name() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:roleplay_bot.ai.GetSessionConfigResponse.user_name)
-  return _internal_user_name();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void GetSessionConfigResponse::set_user_name(Arg_&& arg,
-                                                     Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.user_name_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:roleplay_bot.ai.GetSessionConfigResponse.user_name)
-}
-inline std::string* GetSessionConfigResponse::mutable_user_name() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_user_name();
-  // @@protoc_insertion_point(field_mutable:roleplay_bot.ai.GetSessionConfigResponse.user_name)
-  return _s;
-}
-inline const std::string& GetSessionConfigResponse::_internal_user_name() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.user_name_.Get();
-}
-inline void GetSessionConfigResponse::_internal_set_user_name(const std::string& value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.user_name_.Set(value, GetArena());
-}
-inline std::string* GetSessionConfigResponse::_internal_mutable_user_name() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _impl_.user_name_.Mutable( GetArena());
-}
-inline std::string* GetSessionConfigResponse::release_user_name() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:roleplay_bot.ai.GetSessionConfigResponse.user_name)
-  return _impl_.user_name_.Release();
-}
-inline void GetSessionConfigResponse::set_allocated_user_name(std::string* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.user_name_.SetAllocated(value, GetArena());
-  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.user_name_.IsDefault()) {
-    _impl_.user_name_.Set("", GetArena());
-  }
-  // @@protoc_insertion_point(field_set_allocated:roleplay_bot.ai.GetSessionConfigResponse.user_name)
-}
-
-// string character_name = 3;
-inline void GetSessionConfigResponse::clear_character_name() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.character_name_.ClearToEmpty();
-}
-inline const std::string& GetSessionConfigResponse::character_name() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:roleplay_bot.ai.GetSessionConfigResponse.character_name)
-  return _internal_character_name();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void GetSessionConfigResponse::set_character_name(Arg_&& arg,
-                                                     Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.character_name_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:roleplay_bot.ai.GetSessionConfigResponse.character_name)
-}
-inline std::string* GetSessionConfigResponse::mutable_character_name() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_character_name();
-  // @@protoc_insertion_point(field_mutable:roleplay_bot.ai.GetSessionConfigResponse.character_name)
-  return _s;
-}
-inline const std::string& GetSessionConfigResponse::_internal_character_name() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.character_name_.Get();
-}
-inline void GetSessionConfigResponse::_internal_set_character_name(const std::string& value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.character_name_.Set(value, GetArena());
-}
-inline std::string* GetSessionConfigResponse::_internal_mutable_character_name() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _impl_.character_name_.Mutable( GetArena());
-}
-inline std::string* GetSessionConfigResponse::release_character_name() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:roleplay_bot.ai.GetSessionConfigResponse.character_name)
-  return _impl_.character_name_.Release();
-}
-inline void GetSessionConfigResponse::set_allocated_character_name(std::string* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.character_name_.SetAllocated(value, GetArena());
-  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.character_name_.IsDefault()) {
-    _impl_.character_name_.Set("", GetArena());
-  }
-  // @@protoc_insertion_point(field_set_allocated:roleplay_bot.ai.GetSessionConfigResponse.character_name)
-}
-
-// string system_config = 4;
+// string system_config = 2;
 inline void GetSessionConfigResponse::clear_system_config() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.system_config_.ClearToEmpty();
@@ -3531,7 +3267,7 @@ inline void GetSessionConfigResponse::set_allocated_system_config(std::string* v
   // @@protoc_insertion_point(field_set_allocated:roleplay_bot.ai.GetSessionConfigResponse.system_config)
 }
 
-// double temperature = 5;
+// double temperature = 3;
 inline void GetSessionConfigResponse::clear_temperature() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.temperature_ = 0;
@@ -3553,7 +3289,7 @@ inline void GetSessionConfigResponse::_internal_set_temperature(double value) {
   _impl_.temperature_ = value;
 }
 
-// double top_p = 6;
+// double top_p = 4;
 inline void GetSessionConfigResponse::clear_top_p() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.top_p_ = 0;
@@ -3575,7 +3311,7 @@ inline void GetSessionConfigResponse::_internal_set_top_p(double value) {
   _impl_.top_p_ = value;
 }
 
-// uint32 top_k = 7;
+// uint32 top_k = 5;
 inline void GetSessionConfigResponse::clear_top_k() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.top_k_ = 0u;
@@ -3597,7 +3333,7 @@ inline void GetSessionConfigResponse::_internal_set_top_k(::uint32_t value) {
   _impl_.top_k_ = value;
 }
 
-// uint32 max_length = 8;
+// uint32 max_length = 6;
 inline void GetSessionConfigResponse::clear_max_length() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.max_length_ = 0u;
@@ -3619,7 +3355,7 @@ inline void GetSessionConfigResponse::_internal_set_max_length(::uint32_t value)
   _impl_.max_length_ = value;
 }
 
-// uint64 created_time = 9;
+// uint64 created_time = 7;
 inline void GetSessionConfigResponse::clear_created_time() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.created_time_ = ::uint64_t{0u};
