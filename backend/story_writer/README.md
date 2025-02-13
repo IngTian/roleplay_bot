@@ -5,6 +5,23 @@
 This is a C++ gRPC RPC server. It manages the interaction between the LLM models and upstream services.
 It also manages user sessions, user chat history, etc.
 
+## How to install dependencies?
+
+### Make sure you have `cmake`, `vcpkg`, and `pkg-config` installed.
+
+If not, please do so via
+```bash
+brew install cmake vcpkg pkg-config
+```
+
+### Install dependencies via `vcpkg`.
+
+Run the following commands at the project root.
+
+```bash
+vcpkg install
+```
+
 ## How to build and run?
 
 ### How to generate Protobuf codes?
