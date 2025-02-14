@@ -7,10 +7,13 @@
 #include <grpcpp/support/interceptor.h>
 #include <grpcpp/support/server_interceptor.h>
 
-namespace interceptors {
-    class LoggingInterceptor final : public grpc::experimental::Interceptor {
+namespace interceptors
+{
+    class LoggingInterceptor final : public grpc::experimental::Interceptor
+    {
     public:
-        explicit LoggingInterceptor(grpc::experimental::ServerRpcInfo *info) : rpc_info_(info) {
+        explicit LoggingInterceptor(grpc::experimental::ServerRpcInfo *info) : rpc_info_(info)
+        {
         }
 
         void Intercept(grpc::experimental::InterceptorBatchMethods *methods) override;
@@ -19,10 +22,11 @@ namespace interceptors {
         grpc::experimental::ServerRpcInfo *rpc_info_;
     };
 
-    class LoggingInterceptorFactory final : public grpc::experimental::ServerInterceptorFactoryInterface {
+    class LoggingInterceptorFactory final : public grpc::experimental::ServerInterceptorFactoryInterface
+    {
     public:
         grpc::experimental::Interceptor *CreateServerInterceptor(grpc::experimental::ServerRpcInfo *info) override;
     };
-} // interceptors
+} // name space interceptors
 
-#endif //LOGGING_INTERCEPTOR_H
+#endif // LOGGING_INTERCEPTOR_H

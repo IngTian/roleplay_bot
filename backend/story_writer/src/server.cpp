@@ -10,14 +10,16 @@
 using grpc::Server;
 using grpc::ServerBuilder;
 
-namespace {
-    void RunServer() {
+namespace
+{
+    void RunServer()
+    {
         const std::string server_address("0.0.0.0:50051");
         handler::StoryWriterServiceHandler service;
         ServerBuilder builder;
         builder.AddListeningPort(server_address, grpc::InsecureServerCredentials());
         builder.RegisterService(&service);
-        std::vector<std::unique_ptr<grpc::experimental::ServerInterceptorFactoryInterface> > interceptor_creators;
+        std::vector<std::unique_ptr<grpc::experimental::ServerInterceptorFactoryInterface>> interceptor_creators;
         interceptor_creators.push_back(std::make_unique<interceptors::LoggingInterceptorFactory>());
         builder.experimental().SetInterceptorCreators(std::move(interceptor_creators));
         const std::unique_ptr<Server> server(builder.BuildAndStart());
@@ -26,11 +28,15 @@ namespace {
     }
 } // namespace
 
-auto main() -> int {
-    try {
+auto main() -> int
+{
+    try
+    {
         app::init_clients();
         RunServer();
-    } catch (const std::exception &e) {
+    }
+    catch (const std::exception &e)
+    {
         spdlog::error("system crashed due to: {}", e.what());
     }
     return 0;

@@ -1,9 +1,9 @@
 #ifndef APP
 #define APP
 
-namespace app {
+namespace app
+{
     void init_clients();
 } // namespace app
 
 #endif // APP
-
