@@ -18,7 +18,8 @@
     {
       "name": "spdlog",
       "version>=": "1.15.0#1"
-    }
+    },
+    "nlohmann-json"
   ],
   "overrides": [
     {
