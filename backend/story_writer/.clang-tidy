@@ -18,7 +18,7 @@ WarningsAsErrors: >
   -misc-unused-parameters,
   -misc-include-cleaner
 FormatStyle: file
-
+HeaderFilterRegex: 'src/.*\.h$'
 CheckOptions:
   - key: readability-tab-width
     value: 4
