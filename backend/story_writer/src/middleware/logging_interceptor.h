@@ -27,6 +27,6 @@ namespace interceptors
     public:
         grpc::experimental::Interceptor *CreateServerInterceptor(grpc::experimental::ServerRpcInfo *info) override;
     };
-} // name space interceptors
+} // namespace interceptors
 
 #endif // LOGGING_INTERCEPTOR_H

@@ -4,7 +4,7 @@
 
 #include "story_writer_service.h"
 
-namespace handler
+namespace services
 {
     auto StoryWriterServiceHandler::InitializeSession(
         grpc::ServerContext *context,
@@ -45,4 +45,4 @@ namespace handler
     {
         return grpc::Status::OK;
     }
-} // namespace handler
+} // namespace services

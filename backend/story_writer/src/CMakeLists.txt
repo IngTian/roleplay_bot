@@ -21,4 +21,5 @@ target_link_libraries(client
 # Add subdirectories.
 add_subdirectory(app)
 add_subdirectory(middleware)
+add_subdirectory(models)
 add_subdirectory(services)

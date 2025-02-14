@@ -6,7 +6,7 @@
 #define STORY_WRITER_SERVICE_HANDLER_H
 #include <story_writer.grpc.pb.h>
 
-namespace handler
+namespace services
 {
     class StoryWriterServiceHandler final : public roleplay_bot::ai::StoryWriter::Service
     {
@@ -36,6 +36,6 @@ namespace handler
             const roleplay_bot::ai::DeleteSessionRequest *request,
             roleplay_bot::ai::DeleteSessionResponse *response) -> grpc::Status override;
     };
-} // namespace handler
+} // namespace services
 
 #endif // STORY_WRITER_SERVICE_HANDLER_H
