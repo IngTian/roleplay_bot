@@ -54,7 +54,6 @@ __pycache__/
 build/
 dist/
 CMakeFiles/
-Makefile
 cmake-build-*/
 
 # AWS CDK specific
