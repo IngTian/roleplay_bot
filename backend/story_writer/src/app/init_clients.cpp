@@ -31,7 +31,7 @@ namespace
     }
 } // namespace
 
-void app::init_clients()
+void app::initClients()
 {
     init_logger();
     spdlog::info("[app::init_clients] successfully initialized all clients");

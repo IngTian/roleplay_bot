@@ -3,7 +3,7 @@
 
 namespace app
 {
-    void init_clients();
+    void initClients();
 } // namespace app
 
 #endif // APP

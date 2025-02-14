@@ -32,7 +32,7 @@ auto main() -> int
 {
     try
     {
-        app::init_clients();
+        app::initClients();
         RunServer();
     }
     catch (const std::exception &e)
