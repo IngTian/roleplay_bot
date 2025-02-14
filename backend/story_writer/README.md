@@ -7,11 +7,11 @@ It also manages user sessions, user chat history, etc.
 
 ## How to install dependencies?
 
-### Make sure you have `cmake`, `vcpkg`, and `pkg-config` installed.
+### Make sure you have `cmake`, `vcpkg`, `clang-tidy`, and `pkg-config` installed.
 
 If not, please do so via
 ```bash
-brew install cmake vcpkg pkg-config
+brew install cmake vcpkg clang-tidy pkg-config
 ```
 
 ### Install dependencies via `vcpkg`.
